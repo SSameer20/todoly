@@ -2,44 +2,36 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FaSortAmountDown } from "react-icons/fa";
 import { MdOutlineAddComment } from "react-icons/md";
-import { FaRegCircle, FaRegCheckCircle,  FaStar  } from "react-icons/fa";   //,
+import { FaRegCircle, FaRegCheckCircle, FaStar } from "react-icons/fa";   //,
 import { CiStar } from "react-icons/ci";
 import axios from 'axios'
 import '../style/home.css'
 
 export default function Home() {
     const [tasks, setTasks] = useState([]);
-//   const [sortBy, setSortBy] = useState(0);
+    const fetchData = async () => {
+        try {
+            const response = await axios.get('http://localhost:3001/server/task-data');
+            setTasks(response.data.recordset);
+            console.log(response.data.recordset)
+        } catch (error) {
+            console.error('Error fetching tasks:', error);
+        }
+
+    };
 
 
-  const fetchData = async () => {
-    try {
-        const response = await axios.get('http://localhost:3001/task-data');
-        setTasks(response.data);
-        console.log(response.data)
-    } catch (error) {
-        console.error('Error fetching tasks:', error);
-    }
-};
+
 
     useEffect(() => {
-       fetchData();
-    }, []);
-
-    // const handleSort = (criteria) => {
-    //     setSortBy(!sortBy);
-    //     const sortedTasks = [...tasks].sort((a, b) => {
-    //       if (criteria === 0) return 0;
-    //       if (criteria === 1) return a.imp - b.imp; // Ascending by importance
-    //     //   if (criteria === 'importance-desc') return b.imp - a.imp; // Descending by importance
-    //       return 0; // Default case
-    //     });
-    //     setTasks(sortedTasks);
-    //   };
+        fetchData();
+    });
 
 
     return (
         <div className="home">
+
+            
 
             <div className="menu">
                 <div className="menu-title">
@@ -47,7 +39,9 @@ export default function Home() {
                 </div>
                 <div className="menu-items">
                     <p> <Link to="/create"><MdOutlineAddComment /></Link></p>
-                    <p><FaSortAmountDown /></p>
+                    {/* <button id="back" type="submit"><Link to="/create">Add Task  <MdOutlineAddComment /></Link></button> */}
+                    {/* <button><FaSortAmountDown/></button> */}
+                    {/*  onClick={SortData} */}
 
                 </div>
             </div>
@@ -55,23 +49,24 @@ export default function Home() {
             <div className="items">
                 {
                     tasks.map((task) => {
-                        return <div className="item" >
+                        return <div className="item" key={task.id} >
                             <div className="details">
-                    
-                                <button style={{backgroundColor:"white", border:"none"}} onClick={(e) => e.completed = !e.completed}>
+
+                                <button style={{ backgroundColor: "white", border: "none" }} onClick={(e) => e.completed = !e.completed}>
                                     {
-                                    task.completed ? <FaRegCheckCircle /> : <FaRegCircle />
+                                        task.completed === "y" ? <FaRegCheckCircle /> : <FaRegCircle />
                                     }
-                                    </button>
-                                <div className="task-title">{task.task}</div>
+                                </button>
+                                <div className="task-title">{task.task_name}</div>
                             </div>
-                            
+
                             <div className="importance">
-                                <p>{task.time}</p>
+
+                                <p>{task.current_time.split('T')}</p>
                                 {
-                                    task.imp ? <FaStar /> : <CiStar />
+                                    task.importance === "true" ? <FaStar /> : <CiStar />
                                 }
-                                
+
                             </div>
                         </div>
 
@@ -83,6 +78,6 @@ export default function Home() {
             </div>
 
 
-        </div>
+        </div >
     )
 }

@@ -31,6 +31,12 @@
     display: flex;
     gap: 20px;
     float: right;
+    height: 40px;
+}
+
+.menu-items > * {
+    text-decoration: none;
+    color: blue;
 }
 
 .item{

@@ -9,11 +9,10 @@ import axios from 'axios'
 export default function Create() {
 
   const [formdata, setFormdata] = useState({
-    task: '',
+    task_name: '',
     desc: '',
-    imp: '',
-    time: new Date().toISOString().slice(11,16),
-    completed: false
+    completed: 'false',
+    importance: ''
   });
 
   const handleChange = (e) => {
@@ -22,7 +21,7 @@ export default function Create() {
   };
 
   const handleSubmit = (e) => {
-    axios.post('http://localhost:3001/create-task', formdata)
+    axios.post('http://localhost:3001/server/create-task', formdata)
       .then(response => {
         console.log(response.data);
         alert('Task created successfully!');
@@ -32,9 +31,6 @@ export default function Create() {
         alert('An error occurred while creating the task. Please try again.');
 
       });
-
-   
-
   };
 
 
@@ -64,11 +60,7 @@ export default function Create() {
         <button type="reset">Cancel</button>
 
       </form>
-      <button type="submit"><Link to="/">Go back</Link></button>
-
-
-
-
+      <button id="back" type="submit"><Link to="/">Go back</Link></button>
     </div>
   )
 }
