@@ -1,6 +1,6 @@
-# Project Title
+# Todoly
 
-Brief description of your project.
+
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -53,7 +53,7 @@ For example:
 
 ## Usage
 
-Provide instructions or examples on how to use your application. Include screenshots or gifs if applicable.
+
 
 ## Contributing
 
