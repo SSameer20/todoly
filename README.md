@@ -52,10 +52,10 @@ For example:
 6. Run the frontend application using `npm start`.
 
 ## Usage
-sample.png
-sample_db.png
-todo_main.png
-create_task.png
+![Logo](sample.png)
+![Logo](sample_db.png)
+![Logo]todo_main.png
+![Logo](create_task.png)
 
 
 
