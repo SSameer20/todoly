@@ -51,14 +51,6 @@ For example:
 5. Run the backend server using `nodemon index.js`.
 6. Run the frontend application using `npm start`.
 
-## Usage
-![Logo](sample.png)
-![Logo](sample_db.png)
-![Logo]todo_main.png
-![Logo](create_task.png)
-
-
-
 ## Contributing
 
 Explain how others can contribute to your project. This could include bug reporting, feature requests, or submitting pull requests.
