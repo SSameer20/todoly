@@ -1,4 +1,5 @@
 # Todoly
+The Todo List Application is a productivity tool designed to help users organize and manage their tasks efficiently. It provides a simple yet powerful interface for creating, updating, and tracking tasks, allowing users to stay on top of their daily responsibilities and goals.
 
 
 
