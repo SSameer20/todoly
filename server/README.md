@@ -21,6 +21,6 @@ This command installs all the necessary dependencies for the React Server. Make 
 ### 3. Start the Development Server
 
 ```bash
-npm start
+node index.js
 ```
 This command starts the development for the Application. You should see output indicating that the on which port the server is listening.
