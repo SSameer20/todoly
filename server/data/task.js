@@ -2,7 +2,9 @@ const data = [
     {
       task: 'Call friend',
       desc: 'Need to call a school friend today',
-      imp: 'false'
+      imp: 'false',
+      time: Date,
+      completed: false
     },
     {
       task: 'Pick up groceries',
@@ -50,6 +52,8 @@ const data = [
       imp: 'true'
     }
   ];
+
+  module.exports = data
 
 
   

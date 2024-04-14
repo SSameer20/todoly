@@ -52,6 +52,8 @@
 
 .item .importance{
     float: right;
+    display: flex;
+    gap: 20px;
 }
 
 

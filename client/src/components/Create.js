@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import {Link} from 'react-router-dom';
 import '../style/create.css'
 import axios from 'axios'
 
@@ -10,7 +11,8 @@ export default function Create() {
   const [formdata, setFormdata] = useState({
     task: '',
     desc: '',
-    imp: ''
+    imp: '',
+    time: new Date().toISOString().slice(11,16)
   });
 
   const handleChange = (e) => {
@@ -23,8 +25,6 @@ export default function Create() {
       .then(response => {
         console.log(response.data);
         alert('Task created successfully!');
-
-
       })
       .catch(error => {
         console.error(error);
@@ -63,6 +63,7 @@ export default function Create() {
         <button type="reset">Cancel</button>
 
       </form>
+      <button type="submit"><Link to="/">Go back</Link></button>
 
 
 
