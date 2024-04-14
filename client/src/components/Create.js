@@ -12,7 +12,8 @@ export default function Create() {
     task: '',
     desc: '',
     imp: '',
-    time: new Date().toISOString().slice(11,16)
+    time: new Date().toISOString().slice(11,16),
+    completed: false
   });
 
   const handleChange = (e) => {
