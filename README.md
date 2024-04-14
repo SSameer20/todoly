@@ -48,7 +48,7 @@ For example:
 2. Install dependencies using `npm install`.
 3. Set up the database by running SQL scripts or migrations.
 4. Configure environment variables.
-5. Run the backend server using `npm start`.
+5. Run the backend server using `nodemon index.js`.
 6. Run the frontend application using `npm start`.
 
 ## Usage
